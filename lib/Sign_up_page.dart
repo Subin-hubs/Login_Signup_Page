@@ -2,9 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:login_signup_page/Home_page.dart';
-import 'package:login_signup_page/login_page.dart';
-
 class signUp extends StatefulWidget {
   const signUp({super.key});
 
@@ -17,7 +14,6 @@ class _signUpState extends State<signUp> {
   TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  bool pass = true;
 
   @override
   Widget build(BuildContext context) {
@@ -79,37 +75,11 @@ class _signUpState extends State<signUp> {
                 Padding(
                   padding: const EdgeInsets.only(left: 30, right: 30, top: 5),
                   child: TextFormField(
-                    obscureText: pass,
                     controller: password,
                     decoration: InputDecoration(
                       filled: true,
                       hintText: 'Password',
                       prefixIcon: Icon(Icons.key),
-/*                      suffixIcon: GestureDetector
-                        (
-                          onTap: (){
-                            if(pass == true){
-                              setState(() {
-                                pass = false;
-                              });
-
-                            }
-                            else{
-                              setState(() {
-                                pass = true;
-                              });
-
-                            }
-
-
-                          },
-
-                          child: Icon(Icons.remove_red_eye)),*/
-                    suffixIcon: IconButton(
-                      icon: Icon(pass ? Icons.visibility: Icons.visibility_off),
-                      onPressed: () => setState(() => pass = !pass),
-                    ),
-
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
                     ),
@@ -134,20 +104,11 @@ class _signUpState extends State<signUp> {
                       log(username.text);
                       log(email.text);
                       log(password.text);
-                     /* Navigator.pop(context);*/
                     },
                         child: Text("Sign Up",style: TextStyle(
                           color: Colors.white,
                         ),)),
                   ),
-                ),
-                GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(username.text)));
-                   /*   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>loginPage()));
-                      Navigator.pop(context, MaterialPageRoute(builder: (context)=>loginPage()));*/
-                    },
-                    child: Text("Old User ? Loin here")),
             
               ],
             ),
