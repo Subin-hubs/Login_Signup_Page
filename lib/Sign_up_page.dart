@@ -109,8 +109,8 @@ class _signUpState extends State<signUp> {
                           color: Colors.white,
                         ),)),
                   ),
-            
-              ],
+
+                )],
             ),
           ),
         ));
